@@ -36,3 +36,60 @@
     transform: rotate(360deg);
   }
 }
+.splash-container{
+height: 100vh;
+background: linear-gradient(to bottom, rgb(223, 150, 16), rgb(8, 164, 231));
+padding: 2rem;
+animation: fadeIn 2s ease-in-out;
+color: rgb(23, 22, 22);
+}
+
+.animated-title{
+font-size:medium;
+font-weight: bolder;
+animation: fadeIn 1s ease-in-out;
+}
+.animation-sub{
+  font-size: small;
+  font-weight: bold;
+  animation: fadeIn 1s ease-in-out;
+}
+@keyframes fadeIn {
+  from {
+    transform:translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+}
+.logo{
+  width: 120px;
+  margin-bottom: 1rem;
+}
+form label {
+  font-weight: bold;
+}
+
+form input {
+  border-radius: 8px;
+}
+.container-mt-5{
+  background: linear-gradient(to top, rgb(227, 74, 230), rgb(18, 237, 241));
+}
+.bottom-right-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 999; 
+}
+.container-mt-5{
+  background: linear-gradient(to right, rgb(31, 17, 66), rgb(76, 56, 56));
+}
+.border-p-4-rounded-shadow-sm-bg-light{
+  background: linear-gradient(to right, #D5D1E9, #D0E4EE );
+}
+.table-table-bordered-shadow-sm{
+   background: linear-gradient(to right, #D5D1E9, #D0E4EE );
+}
