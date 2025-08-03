@@ -169,10 +169,10 @@ const ManageSubjects = () => {
             return (
               <li key={index} className="list-group-item d-flex justify-content-between align-items-center">
                 <div>
-  <strong>{subject.name}</strong> ({subject.code})<br />
-  Instructor: {subject.instructor}<br />
-  Credit Hours: {subject.credit}
-</div>
+               <strong>{subject.name}</strong> ({subject.code})<br />
+               Instructor: {subject.instructor}<br />
+               Credit Hours: {subject.credit}
+                 </div>
 
                 <div>
                   <input

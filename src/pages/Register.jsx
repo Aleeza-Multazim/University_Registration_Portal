@@ -151,7 +151,7 @@ function Register() {
             accept="image/*"
             className="form-control"
             onChange={handleChange}
-            required={!formData.id} // required only for new student
+            required={!formData.id} 
           />
         </div>
 

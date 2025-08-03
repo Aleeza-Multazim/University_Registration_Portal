@@ -1,7 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import logo from '../assets/Images/numl-logo.png'; // double-check this path
-
+import logo from '../assets/Images/numl-logo.png';
 function Splash() {
   const navigate = useNavigate();
 
