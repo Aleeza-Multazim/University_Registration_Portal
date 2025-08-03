@@ -14,6 +14,7 @@ function Register() {
     rollNo: '',
     department: '',
     cnic: '',
+    semester: '',
     image: null,
   });
 
@@ -55,11 +56,12 @@ function Register() {
       rollNo: '',
       department: '',
       cnic: '',
+      semester: '',
       image: null,
     });
 
-    setStudentToEdit(null); // 👈 clear editing state
-    navigate('/students');  // 👈 go back to listing page after submit
+    setStudentToEdit(null); 
+    navigate('/students');  
   };
 
   return (
@@ -130,6 +132,18 @@ function Register() {
         </div>
 
         <div className="mb-3">
+          <label className="form-label">Semester</label>
+          <input
+            type="text"
+            name="semester"
+            className="form-control"
+            value={formData.semester}
+            onChange={handleChange}
+            required
+            />
+          </div>
+
+        <div className="mb-3">
           <label className="form-label">Upload Picture</label>
           <input
             type="file"
@@ -141,7 +155,7 @@ function Register() {
           />
         </div>
 
-        {/* 👇 Preview Image (Optional) */}
+       
         {formData.image && typeof formData.image === 'object' && (
           <div className="mb-3">
             <img

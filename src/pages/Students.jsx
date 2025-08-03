@@ -1,16 +1,25 @@
 import React, { useContext } from 'react';
 import { GlobalContext } from '../context/GlobalContext';
 import { useNavigate } from 'react-router-dom';
+
 function Students() {
   const { students, deleteStudent, setStudentToEdit } = useContext(GlobalContext);
   const navigate = useNavigate();
 
   const handleEdit = (student) => {
-    setStudentToEdit(student); // store this student in context
+    setStudentToEdit(student);
     navigate('/register');
-  
-};
+  };
 
+  const handleManageSubjects = (student) => {
+   navigate(`/students/${student.id}/subjects`, {
+  state: {
+    department: student.department,
+    semester: student.semester,
+  },
+});
+
+  };
 
   return (
     <div className="container-mt-5">
@@ -27,7 +36,9 @@ function Students() {
               <th>Father Name</th>
               <th>Roll Number</th>
               <th>Department</th>
+              <th>Semester</th>
               <th>CNIC</th>
+              <th>Manage Subjects</th>
               <th>Actions</th>
             </tr>
           </thead>
@@ -47,28 +58,43 @@ function Students() {
                 </td>
                 <td>{student.name}</td>
                 <td>{student.fatherName}</td>
-                <td>{student.rollNo}</td> {/* Fix field name */}
+                <td>{student.rollNo}</td>
                 <td>{student.department}</td>
+                <td>{student.semester}</td>
                 <td>{student.cnic}</td>
-               <td>
-  <button onClick={() => handleEdit(student)} className="btn btn-primary btn-sm me-2">
-    Edit
-  </button>
-  <button onClick={() => deleteStudent(student.id)} className="btn btn-danger btn-sm">
-    Delete
-  </button>
-</td>
-
+                <td>
+                  <button
+                    onClick={() => handleManageSubjects(student)}
+                    className="btn btn-success btn-sm"
+                  >
+                    Manage Subjects
+                  </button>
+                </td>
+                <td>
+                  <button
+                    onClick={() => handleEdit(student)}
+                    className="btn btn-primary btn-sm me-2"
+                  >
+                    Edit
+                  </button>
+                  <button
+                    onClick={() => deleteStudent(student.id)}
+                    className="btn btn-danger btn-sm"
+                  >
+                    Delete
+                  </button>
+                </td>
               </tr>
             ))}
           </tbody>
-          <div className = "bottom-right-btn mb-3">
-           <button className="btn btn-secondary mb-3" onClick={() => navigate('/register')}> Back to Student Registration Portal
-</button>
-</div>
         </table>
-        
       )}
+
+      <div className="bottom-right-btn mb-3">
+        <button className="btn btn-secondary mb-3" onClick={() => navigate('/register')}>
+          Back to Student Registration Portal
+        </button>
+      </div>
     </div>
   );
 }
